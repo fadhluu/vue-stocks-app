@@ -10,6 +10,8 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import { routes } from './routes';
+import store from './store/store';
+
 import App from './App.vue';
 
 library.add(faTwitter, faFacebook, faGoogle, faInstagram);
@@ -26,4 +28,5 @@ const router = new VueRouter({
 new Vue({
   render: h => h(App),
   router,
+  store,
 }).$mount('#app');

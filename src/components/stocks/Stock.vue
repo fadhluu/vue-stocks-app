@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-6 col-md-6 col-sm-12">
-    <div class="card mt-4 text-white" style="border-color: #ffda79;">
-      <div class="card-header" style="background: #ffda79; color: #cc8e35;">
+    <div class="card mt-4 text-white" style="border-color: #45aaf2;">
+      <div class="card-header" style="background: #45aaf2;">
         <font-awesome-icon
           :icon="{ prefix: 'fab', iconName: this.icon_name }"
         />
@@ -20,10 +20,9 @@
           </div>
           <div class="col-lg-2 col-md-2 col-sm-12">
             <button
-              class="btn"
+              class="btn btn-primary"
               @click="buyStock"
               :disabled="quantity <= 0 || !Number.isInteger(+quantity)"
-              style="background: #ffb142; color: white;"
             >
               Buy
             </button>

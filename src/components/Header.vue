@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background: #34ace0;">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background: #45aaf2;">
     <router-link to="/" class="navbar-brand">Stock Trader</router-link>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
