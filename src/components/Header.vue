@@ -17,7 +17,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <div class="nav-link disabled" style="color: white;">
-            Funds: ${{ funds }}
+            Funds: {{ funds | currency }}
           </div>
         </li>
         <li class="nav-item"><a href="#" class="nav-link">End of Day</a></li>

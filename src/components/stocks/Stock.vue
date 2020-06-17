@@ -10,21 +10,29 @@
       </div>
       <div class="card-body">
         <div class="form-row">
-          <div class="col-lg-10 col-md-10 col-sm-12">
+          <div class="col-8">
             <input
               type="number"
+              min="0"
               class="form-control"
               placeholder="Quantity"
               v-model="quantity"
+              :class="{ 'is-invalid': insufficientFunds }"
             />
           </div>
-          <div class="col-lg-2 col-md-2 col-sm-12">
+          <div class="col-4">
             <button
-              class="btn btn-primary"
+              class="btn"
+              :class="insufficientFunds ? 'btn-danger' : 'btn-primary'"
               @click="buyStock"
-              :disabled="quantity <= 0 || !Number.isInteger(+quantity)"
+              :disabled="
+                insufficientFunds ||
+                  quantity <= 0 ||
+                  !Number.isInteger(+quantity)
+              "
+              style="width: 100%"
             >
-              Buy
+              {{ insufficientFunds ? 'Insufficient Funds' : 'Buy' }}
             </button>
           </div>
         </div>
@@ -42,6 +50,14 @@ export default {
       icon_name: '',
     };
   },
+  computed: {
+    funds() {
+      return this.$store.getters.funds;
+    },
+    insufficientFunds() {
+      return this.quantity * this.stock.price > this.funds;
+    },
+  },
   methods: {
     buyStock() {
       const order = {
@@ -49,8 +65,7 @@ export default {
         stockPrice: this.stock.price,
         quantity: this.quantity,
       };
-      console.log(order);
-      this.$store.dispatch('buyStock', order)
+      this.$store.dispatch('buyStock', order);
       this.quantity = 0;
     },
   },
