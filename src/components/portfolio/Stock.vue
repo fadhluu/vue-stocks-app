@@ -39,7 +39,6 @@
           </div>
         </div>
       </div>
-      <div class="card-footer bg-primary">Diff: {{ stock.diff }}</div>
     </div>
   </div>
 </template>
