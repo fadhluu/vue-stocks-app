@@ -15,6 +15,11 @@
         >
       </ul>
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <div class="nav-link disabled" style="color: white;">
+            Funds: ${{ funds }}
+          </div>
+        </li>
         <li class="nav-item"><a href="#" class="nav-link">End of Day</a></li>
         <li class="nav-item dropdown">
           <a
@@ -39,7 +44,13 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters(['funds']),
+  },
+};
 </script>
 
 <style></style>
