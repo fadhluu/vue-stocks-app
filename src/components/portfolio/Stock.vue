@@ -4,7 +4,7 @@
       <div class="card-header" style="background: #45aaf2;">
         <font-awesome-icon
           :icon="{ prefix: 'fab', iconName: this.icon_name }"
-        />console.log
+        />
         {{ stock.name }}
         <small>
           (Price: ${{ stock.price }} | Quantity: {{ stock.quantity }})</small
@@ -39,6 +39,7 @@
           </div>
         </div>
       </div>
+      <div class="card-footer bg-primary">Diff: {{ stock.diff }}</div>
     </div>
   </div>
 </template>
